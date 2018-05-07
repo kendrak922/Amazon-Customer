@@ -39,10 +39,10 @@ inquirer.prompt([
         message: "How many units of this product would you like to buy??"
     }
 ]).then(answers => {
-      
         connection.query("SELECT * FROM products WHERE ?", {item_id : answers.idNumber}, function(err, res) {
-          if (err) throw err;
+        if (err) throw err;
           console.log(res);
+        if (res[0].stock_quantity-answers.howMany >= 0){  
        connection.query("UPDATE products SET ? WHERE ?",
           [
             {
@@ -54,7 +54,8 @@ inquirer.prompt([
           ],
       )
       console.log("order is on the way!")
-      
-    
+    } else {
+        console.log("Insufficient quantity!");
+    }
 });
  });
