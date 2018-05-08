@@ -17,18 +17,15 @@ const connection = mysql.createConnection({
 
 connection.connect(function(err) {
   if (err) throw err;
-  console.log("connected as id " + connection.threadId + "\n");
   displayProducts();
 });
 
 function displayProducts() {
   connection.query("SELECT * FROM products", function(err, res) {
     if (err) throw err;
-    console.log(res);
-  });
-}
-
-/// ID Number question
+   console.log(res);
+}  
+  )};
 inquirer.prompt([
     {   type: "input",
         name: "idNumber",
@@ -41,7 +38,11 @@ inquirer.prompt([
 ]).then(answers => {
         connection.query("SELECT * FROM products WHERE ?", {item_id : answers.idNumber}, function(err, res) {
         if (err) throw err;
-          console.log(res);
+        console.log("\n-------------\n");
+          console.log(`Product: ${res[0].product_name}`);
+          console.log(`Id Number: ${res[0].item_id}`);
+          console.log(`Price:${res[0].price}`)
+          console.log("\n-------------");
         if (res[0].stock_quantity-answers.howMany >= 0){  
        connection.query("UPDATE products SET ? WHERE ?",
           [
@@ -53,7 +54,10 @@ inquirer.prompt([
             }
           ],
       )
-      console.log("order is on the way!")
+      console.log("\n-------------\n");
+      console.log("Order is on the way!")
+      console.log(`You spent ${res[0].price} dollars.`)
+      console.log("\n-------------");
     } else {
         console.log("Insufficient quantity!");
     }
