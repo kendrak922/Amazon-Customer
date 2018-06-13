@@ -2,7 +2,7 @@
 Node.js and MySQL app
 
 # About
-Amazon-Customer is a node.js app that intereacts directly with a mysql database. this app works directly with the inquier npm to to interact with the user and mysql to keep track of the products inventory. 
+Amazon-Customer is a node.js app that intereacts directly with a mysql database. this app works with the inquier npm to to interact with the user and mysql to keep track of the products inventory. 
 
 
 First the user is presented with a list of the full inventory:
