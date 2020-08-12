@@ -1,7 +1,7 @@
 # Amazon-Customer
 Node.js and MySQL app
 
-# About
+## About
 Amazon-Customer is a node.js app that connects directly with a mysql database. This app works with the inquier npm to interact with the user and mysql to keep track of the products inventory. 
 
 
@@ -17,6 +17,7 @@ If there is enough of their desired item in inventory, then they are presented w
 
 ![purchase successful](/images/3.png)
 
-If there is not enough of the itme they want, then they will be unable to purchase the product and will be greeted with this message:
+If there is not enough of the item they want, then they will be unable to purchase the product and will be greeted with this message:
 
 ![purchase unsuccessful](/images/4.png)
+
